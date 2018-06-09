@@ -2,6 +2,7 @@
 #include <vector>
 #include <windows.h>
 
+
 using namespace std;
 
 vector<vector<bool> > line =
@@ -137,21 +138,31 @@ public:
   
 int main()
 {
+	GetStdHandle(STD_OUTPUT_HANDLE); 
+	cout << "      Welcome to Ceil Life" << endl;
+	cout << "Please choose the view" << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_INTENSITY|FOREGROUND_GREEN|FOREGROUND_BLUE);
+	cout << "input 0 is three ceil a line" <<endl;  
+	cout << "input 1 is static view" <<endl;
 	int choose;
 	vector<vector<bool> > input;
 	cin >> choose;
 	if(choose == 0)
-    	input = line; 
-    else 
-    	input = sta; 
+    {
+		input = line;
+	}
+    else if(choose == 1)
+    {
+		input = sta; 
+	}
     
     CellMar solution(input);
 
-    for ( int i = 0; i < 10; i++ )
+    while(1)
     {
-        Sleep(1000);
-        system("cls"); 
+		system("cls"); 
         solution.MyPrint();
+        Sleep(100);
         solution.life();
     }
 
