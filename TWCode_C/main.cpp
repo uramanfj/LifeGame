@@ -226,11 +226,14 @@ int main()
 	                            FOREGROUND_GREEN |   
 	                            FOREGROUND_BLUE);
 	    CellMar solution(input);
+	    int speed;
+	    cout << endl << "Please input the speed what you want ? unit is ms!" << endl;
+	    cin >> speed;
 	    while(!kbhit())
 	    {
 			system("cls"); 
 	        solution.MyPrint();
-	        Sleep(100);
+	        Sleep(speed);
 	        solution.life();
 	    }
 	    system("cls");
